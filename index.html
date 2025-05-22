@@ -113,10 +113,13 @@
     document.querySelector('.title').textContent = product.title;
     document.querySelector('.price').textContent = product.price;
 
-    function handlePurchase() {
-      const methods = document.getElementsByName("payment");
-      let selectedMethod = null;
-      for (const m of methods) {
+    function handlePurchase() 
+    {
+      const methods        = document.getElementsByName("payment");
+      let   selectedMethod = null;
+      
+      for (const m of methods) 
+      {
         if (m.checked) {
           selectedMethod = m.value;
           break;
@@ -125,7 +128,13 @@
 
       console.log("Product:", product);
       console.log("Payment method:", selectedMethod);
-      alert(`Purchasing ${product.title} with ${selectedMethod}`);
+
+      //alert(`Purchasing ${product.title} with ${selectedMethod}`);
+
+      let userId = "123";
+      let amount = "9.99";
+      alert(`Purchasing ${userId} with ${amount}`);
+      window.location.href = `https://mydomain.com/payment?userId=${userId}&amount=${amount}`;
     }
   </script>
 </body>
