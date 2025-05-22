@@ -101,11 +101,17 @@
   </div>
 
   <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
     const product = {
       icon: '🛒',
-      title: 'Premium Subscription',
-      price: '$9.99',
+      title: urlParams.get('title') || 'Premium Subscription',
+      price: urlParams.get('price') || '$9.99',
     };
+
+    // Update the product display
+    document.querySelector('.title').textContent = product.title;
+    document.querySelector('.price').textContent = product.price;
 
     function handlePurchase() {
       const methods = document.getElementsByName("payment");
